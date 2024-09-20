@@ -1,7 +1,5 @@
 "use strict";
 
-// playRound(humanChoice(), computerChoice());
-
 function playGame() {
   // store players scores
   let humanScore = 0;
@@ -27,40 +25,46 @@ function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "paper") {
       // rock < paper
-      console.log("You lose!");
+      result(humanChoice, computerChoice);
+      youLose();
       computerSCore++;
       return;
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
       // rock > scissor
-      console.log("You win, yay!");
+      result(humanChoice, computerChoice);
+      youWin();
       humanScore++;
       return;
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
       // paper < scissor
-      console.log("You lose!:((");
+      result(humanChoice, computerChoice);
+      youLose();
       computerSCore++;
       return;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
       // paper > rock
-      console.log("You win, yay!");
+      result(humanChoice, computerChoice);
+      youWin();
       humanScore++;
       return;
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
       // scissor < rock
-      console.log("You lose!:((");
+      result(humanChoice, computerChoice);
+      youLose();
       computerSCore++;
       return;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
       // scissor > paper
-      console.log("You win, :))");
+      result(humanChoice, computerChoice);
+      youWin();
       humanScore++;
       return;
     } else {
-      console.log("Draw!");
+      console.log("Draw! No one win this round");
     }
   }
 
-  // call play round n time
+  // call play round 5 time
   for (let i = 0; i < 5; i++) {
     let humanSelected = humanChoice();
     let computerSelected = computerChoice();
@@ -76,6 +80,17 @@ function playGame() {
     console.log("Computer won the game! You suck");
   } else {
     console.log("Draw! play another game to decide the winner!");
+  }
+
+  // function for updating score
+  function result(humanChoice, computerChoice) {
+    console.log(`You: ${humanChoice} // Computer: ${computerChoice}`);
+  }
+  function youWin() {
+    console.log("You won this round!");
+  }
+  function youLose() {
+    console.log("You lost this round! Try your best!");
   }
 }
 
