@@ -1,98 +1,63 @@
 "use strict";
 
 function playGame() {
-  // store players scores
   let humanScore = 0;
   let computerScore = 0;
 
-  // Get the computer choice, using Math.random + 3
+  // Function to get computer's choice
   function computerChoice() {
-    let choice = Math.trunc(Math.random() * 3) + 1;
-    if (choice === 1) {
-      return "rock";
-    } else if (choice === 2) {
-      return "paper";
-    } else {
-      return "scissors";
-    }
+    const choice = ["rock", "paper", "scissors"];
+    return choice[Math.floor(Math.random() * 3)];
   }
-  // Get the human choice, using prompt function
+  // Function to get human's choice
   function humanChoice() {
-    let choice = prompt("Rock, paper or scissors: ");
-    return choice.toLocaleLowerCase();
+    return prompt("Rock, paper or scissors: ").toLocaleLowerCase();
   }
-  // play round
-  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "rock" && computerChoice === "paper") {
-      // rock < paper
-      result(humanChoice, computerChoice);
-      youLose();
-      computerScore++;
-      return;
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-      // rock > scissor
-      result(humanChoice, computerChoice);
-      youWin();
+
+  // Function to determine  the winner
+  function determineWinner(humanChoice, computerChoice) {
+    const winningCombos = {
+      rock: "scissors",
+      paper: "rock",
+      scissors: "paper",
+    };
+
+    if (humanChoice === computerChoice) {
+      console.log("Draw! No one wins this round");
+    } else if (computerChoice === winningCombos[humanChoice]) {
       humanScore++;
-      return;
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
-      // paper < scissor
-      result(humanChoice, computerChoice);
-      youLose();
-      computerSCore++;
-      return;
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-      // paper > rock
-      result(humanChoice, computerChoice);
-      youWin();
-      humanScore++;
-      return;
-    } else if (humanChoice === "scissors" && computerChoice === "rock") {
-      // scissor < rock
-      result(humanChoice, computerChoice);
-      youLose();
-      computerSCore++;
-      return;
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      // scissor > paper
-      result(humanChoice, computerChoice);
-      youWin();
-      humanScore++;
-      return;
+      console.log(`You won this round! ${humanChoice} beats ${computerChoice}`);
+      return "human";
     } else {
-      console.log("Draw! No one win this round");
+      computerScore++;
+      console.log(
+        `You lost this round! ${computerChoice} beats ${humanChoice}`
+      );
+      return "computer";
+    }
+  }
+  // Function to play multiple rounds and determine the overall winner
+  function playRounds(rounds = 5) {
+    for (let i = 0; i < rounds; i++) {
+      const humanSelected = humanChoice();
+      const computerSelected = computerChoice();
+
+      console.log(`You: ${humanSelected}, Computer: ${computerSelected}`);
+      determineWinner(humanSelected, computerSelected);
     }
   }
 
-  // call play round 5 time
-  for (let i = 0; i < 5; i++) {
-    let humanSelected = humanChoice();
-    let computerSelected = computerChoice();
+  //Play rounds
+  playRounds();
 
-    playRound(humanSelected, computerSelected);
-  }
-
-  //compare scores and log the score and the winner to the console
-  console.log(`Your score: ${humanScore}
-    Computer score: ${computerScore}`);
+  // Final result
+  console.log(`Your score: ${humanScore}\nComputer score ${computerScore}`);
   if (humanScore > computerScore) {
-    console.log("****You won the game! Congrats****");
+    console.log(`***You won the game! Congrats`);
   } else if (humanScore < computerScore) {
-    console.log("****Computer won the game! You suck****");
+    console.log(`***You lost the game, sucker!`);
   } else {
-    console.log("****Draw! play another game to decide the winner!****");
-  }
-
-  // function for updating score
-  function result(humanChoice, computerChoice) {
-    console.log(`You: ${humanChoice} 
-    Computer: ${computerChoice}`);
-  }
-  function youWin() {
-    console.log("You won this round!");
-  }
-  function youLose() {
-    console.log("You lost this round!");
+    console.log("***Draw");
   }
 }
 
