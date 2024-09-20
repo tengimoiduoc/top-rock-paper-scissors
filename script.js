@@ -3,7 +3,7 @@
 function playGame() {
   // store players scores
   let humanScore = 0;
-  let computerSCore = 0;
+  let computerScore = 0;
 
   // Get the computer choice, using Math.random + 3
   function computerChoice() {
@@ -27,7 +27,7 @@ function playGame() {
       // rock < paper
       result(humanChoice, computerChoice);
       youLose();
-      computerSCore++;
+      computerScore++;
       return;
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
       // rock > scissor
@@ -74,10 +74,10 @@ function playGame() {
 
   //compare scores and log the score and the winner to the console
   console.log(`Your score: ${humanScore}
-    Computer score: ${computerSCore}`);
-  if (humanScore > computerSCore) {
+    Computer score: ${computerScore}`);
+  if (humanScore > computerScore) {
     console.log("****You won the game! Congrats****");
-  } else if (humanScore < computerSCore) {
+  } else if (humanScore < computerScore) {
     console.log("****Computer won the game! You suck****");
   } else {
     console.log("****Draw! play another game to decide the winner!****");
