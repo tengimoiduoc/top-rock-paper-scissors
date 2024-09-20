@@ -73,7 +73,8 @@ function playGame() {
   }
 
   //compare scores and log the score and the winner to the console
-  console.log("Your score: ", humanScore, "Computer score: ", computerSCore);
+  console.log(`Your score: ${humanScore}
+    Computer score: ${computerSCore}`);
   if (humanScore > computerSCore) {
     console.log("You won the game! Congrats");
   } else if (humanScore < computerSCore) {
@@ -84,7 +85,8 @@ function playGame() {
 
   // function for updating score
   function result(humanChoice, computerChoice) {
-    console.log(`You: ${humanChoice} // Computer: ${computerChoice}`);
+    console.log(`You: ${humanChoice} 
+    Computer: ${computerChoice}`);
   }
   function youWin() {
     console.log("You won this round!");
@@ -94,4 +96,4 @@ function playGame() {
   }
 }
 
-playGame();
+document.querySelector("button").addEventListener("click", playGame);
