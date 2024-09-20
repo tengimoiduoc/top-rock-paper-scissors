@@ -51,7 +51,7 @@ function playGame() {
   playRounds();
 
   // Final result
-  console.log(`Your score: ${humanScore}\nComputer score ${computerScore}`);
+  console.log(`Your score: ${humanScore}\nComputer score: ${computerScore}`);
   if (humanScore > computerScore) {
     console.log(`***You won the game! Congrats`);
   } else if (humanScore < computerScore) {
