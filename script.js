@@ -1,5 +1,5 @@
 "use strict";
-console.log("Hello, World");
+
 // store players scores
 let humanScore,
   computerSCore = 0;
@@ -19,7 +19,12 @@ function computerChoice() {
 console.log(computerChoice());
 
 // Get the human choice, using prompt function
+function humanChoice() {
+  let choice = prompt("Rock, paper or scissor: ");
+  return choice.toLocaleLowerCase();
+}
 
+console.log(humanChoice());
 // play single round
 /*# create playRound function with two 
   parameters (humanChoice, computerChoice), 
