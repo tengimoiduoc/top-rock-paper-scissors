@@ -76,11 +76,11 @@ function playGame() {
   console.log(`Your score: ${humanScore}
     Computer score: ${computerSCore}`);
   if (humanScore > computerSCore) {
-    console.log("You won the game! Congrats");
+    console.log("****You won the game! Congrats****");
   } else if (humanScore < computerSCore) {
-    console.log("Computer won the game! You suck");
+    console.log("****Computer won the game! You suck****");
   } else {
-    console.log("Draw! play another game to decide the winner!");
+    console.log("****Draw! play another game to decide the winner!****");
   }
 
   // function for updating score
@@ -92,7 +92,7 @@ function playGame() {
     console.log("You won this round!");
   }
   function youLose() {
-    console.log("You lost this round! Try your best!");
+    console.log("You lost this round!");
   }
 }
 
