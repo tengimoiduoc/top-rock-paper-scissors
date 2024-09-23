@@ -4,33 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <style>
-      body {
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        text-align: center;
-        background-color: azure;
-        color: blueviolet;
-      }
-
-      button {
-        cursor: pointer;
-        border: 1px solid blueviolet;
-        padding: 12px 24px;
-        color: blueviolet;
-        background-color: aliceblue;
-        font-size: 26px;
-        border-radius: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Let's play rock paper scissors</h1>
-    <p>
-      We're gonna play this game in the console so open the DevTools
-      (Ctrl+Shift+c) and select Console, then press the start button to play the
-      game!
-    </p>
-    <button>Start</button>
+    <div class="container">
+      <h1>Rock Paper Scissors Game</h1>
+      <div class="choices">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
+      <div class="results">
+        <p id="resultText">Make your choice to start the game!</p>
+        <p>Human Score: <span id="humanScore">0</span></p>
+        <p>Computer Score: <span id="computerScore">0</span></p>
+      </div>
+      <button id="playButton">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
